@@ -61,6 +61,15 @@ body {
     color: #333;
     text-decoration: none;
   }
+
+  .article-btn-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .article-btn-container .btn {
+    margin: 2px;
+  }
   
   .article-svg {
     width: 25px;
@@ -77,4 +86,8 @@ body {
   
   .account-heading {
     font-size: 2.5rem;
+  }
+
+  .post-textarea{
+    min-height: 50vh
   }
