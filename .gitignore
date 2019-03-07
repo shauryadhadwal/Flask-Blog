@@ -1,3 +1,6 @@
+#Windows
+*.bat
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -7,9 +10,7 @@ __pycache__/
 *.so
 
 # Virtual Environments
-virtualenv
-venv
-*.venv
+
 
 # Distribution / packaging
 .Python
@@ -101,6 +102,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+virtualenv
 
 # Spyder project settings
 .spyderproject

@@ -13,7 +13,7 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
     def validate_username(self, username):
-        #TODO: Username should not be checked for lower and upper cases
+        #TODO: Username should be case insensitive
         user = User.query.filter_by(username=username.data).first()
         if user:
             raise ValidationError("Username already taken! Please choose a different one!")
@@ -55,3 +55,19 @@ class NewPostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])           
     content = TextAreaField('Content', validators=[DataRequired()])
     submit = SubmitField('Post')
+
+class RequestResetForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Request Reset Password')
+
+    def validate_email(self, email):
+        #TODO: Username should be case insensitive
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:
+            raise ValidationError("No account with this email exists! Please choose a different one!")
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Reset')
